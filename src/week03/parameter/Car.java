@@ -26,7 +26,7 @@ public class Car {
     double brakePedal(char type) {
         speed = 0;
         type = 'P'; // 정지 후 매개변수 type을 어떤 타입으로 전달 받았는지 상관없이 'P'로 고정시키기
-        changeGear(type);
+        changeGear(type); // Car class(객체) 내부에서 type 을 변경하여 수정하였기 때문에 Main method에서 P 출력
         return speed;
     }
 
@@ -45,7 +45,7 @@ public class Car {
     }
 
     Tire setTire(Tire tireCompany) {
-        tireCompany.company = "KIA"; // 금호 타이어를 전달 받았지만 강제로 KIA 타이어로 교체
+        tireCompany.company = "KIA"; // 금호 타이어를 전달 받았지만 강제로 KIA 타이어로 교체, 강제로!!
         tire = tireCompany;
         return tire;
     }

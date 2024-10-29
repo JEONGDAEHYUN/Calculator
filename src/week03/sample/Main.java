@@ -13,7 +13,7 @@ public class Main {
 
     // 메서드
 
-    public int getNumber() {
+    public int getNumber() { // return type 이 int
         // [지역변수] <-> 전역변수(static)
         // 해당 메서드가 실행될 때 마다 독립적인 값을 저장하고 관리합니다.
         // 이 지역변수는 메서드 내부에서 정의될 때 생성된다.

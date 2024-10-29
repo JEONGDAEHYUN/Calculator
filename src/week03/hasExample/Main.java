@@ -28,7 +28,7 @@ public class Main {
         }
         System.out.println();
 
-        for (Door door : car.door) {
+        for (Door door : car.door) { // 향상된 for 문으로 Door 를
             System.out.println("door.company = " + door.company);
             System.out.println("door.location = " + door.location);
             System.out.println();

@@ -1,6 +1,6 @@
-package week03.packageExample.main;
+package week03.packageExample.main; // package
 
-import week03.packageExample.pk1.Car;
+import week03.packageExample.pk1.Car; //
 
 public class Main {
     public static void main(String[] args) {

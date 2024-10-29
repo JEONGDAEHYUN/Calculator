@@ -11,10 +11,10 @@ public class Car {
     char gear = 'P'; // 기어의 상태, P,R,N,D
     boolean lights; // 자동차 조명의 상태
 
-    // (1) 오버로딩
-    public Car(String modelName) {
-        model = modelName;
-        System.out.println("첫 번째 생성자가 호출되었습니다.");
+    // (1) 오버로딩, Car 라는 공통(public)의 생성자 이름으로 각각 다른 기능을 수행할 수 있게 해준다.
+    public Car(String modelName) { // 이름은 같지만 매개변수의 차이에 의해 구분된다.
+        model = modelName; // modelName 객체를 GV60으로 초기화
+        System.out.println("첫 번째 생성자가 호출되었습니다."); //
     }
 
     // (2)

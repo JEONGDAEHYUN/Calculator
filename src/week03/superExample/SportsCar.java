@@ -8,7 +8,7 @@ public class SportsCar extends Car{
     double price = 300000000; // 자동차 가격
 
     public SportsCar(String engine) {
-        this.engine = engine;
+        this.engine = engine; // 매개 변수 값을 필드에 할당
     }
 
     public void booster() {
@@ -16,8 +16,8 @@ public class SportsCar extends Car{
     }
 
     public void setCarInfo(String model, String color, double price) {
-        super.model = model; // model은 부모 필드에 set
-        super.color = color; // color는 부모 필드에 set
+        super.model = model; // model은 부모 필드에 set, 부모의 모델을 바꿔주는것
+        super.color = color; // color는 부모 필드에 set, 부모의 모델을 바꿔주는것
         this.price = price; // price는 자식 필드에 set
     }
 

@@ -1,6 +1,7 @@
 package week03.abs;
 
-public abstract class Car {
+public abstract class
+ Car {
     String company; // 자동차 회사
     String color; // 자동차 색상
     double speed;  // 자동차 속도 , km/h
@@ -15,5 +16,5 @@ public abstract class Car {
         return speed;
     }
 
-    public abstract void horn();
+    public abstract void horn(); // 추상 abstract
 }

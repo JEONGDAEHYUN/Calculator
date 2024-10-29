@@ -3,39 +3,48 @@ package week03.inter;
 public class Main {
     public static void main(String[] args) {
 
-        // LG TV 구현체를 조작
-        MultiRemoteController mrc = new LgTv("LG"); // 클레스를 객체화(instans)
-        mrc.turnOnOff();
-        mrc.volumeUp();
-        mrc.channelDown();
-        mrc.channelUp();
-        mrc.turnOnOff();
+        // A 인터페이스에 구현체 B 대입
+        A a1 = new B();
+        a1.a();
+        // a1.b(); // 불가능
 
-        // 조작 대상을 Samsung TV로 교체
-        System.out.println("\n<Samsung TV로 교체>");
-        mrc = new SamsungTv("Samsung");
-        mrc.turnOnOff();
-        mrc.channelUp();
-        mrc.volumeDown();
-        mrc.volumeUp();
-        mrc.turnOnOff();
-
-        // 매개변수, 반환타입 다형성 체크
-        System.out.println("\n<매개변수, 반환타입 다형성 체크>");
-
-        MultiRemoteController samsung = mrc.getTV(new SamsungTv("Samsung"));
-        samsung.turnOnOff();
-
-        SamsungTv samsungTv = (SamsungTv) samsung;
-        samsungTv.turnOnOff();
-
-
+        System.out.println("\nB 강제 타입변환");
+        B b = (B) a1;
+        b.a();
+        b.b(); // 강제 타입변환으로 사용 가능
         System.out.println();
-        MultiRemoteController lg = mrc.getTV(new LgTv("LG"));
-        lg.turnOnOff();
 
-        LgTv lgTv = (LgTv) lg;
-        lgTv.turnOnOff();
+        // A 인터페이스에 구편체 B를 상속받은 C 대입
+        A a2 = new C();
+        a2.a();
+        //a2.b(); // 불가능
+        //a2.c(); // 불가능
 
+        System.out.println("\nC 강제 타입변환");
+        C c = (C) a2;
+        c.a();
+        c.b(); // 강제 타입변환으로 사용 가능
+        c.c(); // 강제 타입변환으로 사용 가능
+
+
+    }
+}
+
+interface A {
+    void a();
+}
+class B implements A {
+    @Override
+    public void a() {
+        System.out.println("B.a()");
+    }
+
+    public void b() {
+        System.out.println("B.b()");
+    }
+}
+class C extends B {
+    public void c() {
+        System.out.println("C.c()");
     }
 }
