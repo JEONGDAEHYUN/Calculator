@@ -1,41 +1,53 @@
 package Calulator;
 
-import java.util.Scanner;
-
+import java.util.ArrayList;
 
 public class Calculator {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in); // 객체 생성 및 선언
-        MyCalculator myCal = new MyCalculator(); // MyCalculator 객체 생성 및 선언
-        // 계산한 값 저장하기 위해 result(변수) 선언 및 초기화
-        int result = 0; // 원시 타입(원시 타입 > 정수형)
+    // 연산 결과를 저장하는 컬렉션 타입 필드 선언 및 생성, 외부에서 직접 접근 불가하도록 private 설정
+//    ArrayList<Integer> results = 0; ??? 선언과 동시에 초기화해서? 질문해보자!!
+    private ArrayList<Integer> results = new  ArrayList<Integer>();
 
-        while (true) {
-            System.out.println("계속하려면 아무 키나 입력해 주시고 종료하려면 exit 를 입력해주세요");
-            String exit = sc.nextLine(); // nextLine() 메서드에서 사용자의 입력값을 받고 String 타입의 exit 을 선언
-            if ("exit".equals(exit)) { // if (exit.equals("exit")) 와 같다. nullPointException 방지 위해 선언된 exit 를
-                break; // if 문을 통해 조건을 넣어주고 조건이 true 일 경우 break 제어자로 while 문을 종료
-            }
-            System.out.println("첫 번째 숫자를 입력하세요: "); // 첫 번째 숫자를 입력하세요: 가 출력된다.
-            int firstNumber = sc.nextInt(); // 7번째 줄에서 선언된 Scanner sc를 할당하여 nextInt로 입력값 있을시 입력값을 인식하게 한다.
-//        System.out.println(firstNumber); // 9번째 줄 sc.nextInt()에서 인식한 입력값 firstNumber 를 출력해준다.
+    public int calculate(int firstNumber, int secondNumber, String input) {
+        int result = 0;
+        // result 값을 초기화 한다. nullPointException 방지
+        switch(input) {
+            case("+"):
+                result = firstNumber + secondNumber;
+                break;
 
-            System.out.println("두 번째 숫자를 입력하세요: "); // 두 번째 숫자를 입력하세요: 가 출력된다.
-            int secondNumber = sc.nextInt(); // 7번째 줄에서 선언된 Scanner sc nextInt로 입력값 있을시 입력값을 인식하게 한다.
-//        System.out.println(secondNumber); // 13번째 줄 sc.nextInt()에서 인식한 입력값 secondNumber 를 출력해준다.
-            sc.nextLine(); // 입력버퍼 안에 있는 공백기호 삭제(버퍼 비우기)
+            case("-"):
+                result = firstNumber - secondNumber;
+                break;
 
-            System.out.println("사칙연산 기호를 입력하세요: "); // 사칙연산 기호를 입력하세요: 가 출력된다.
-            String input = sc.nextLine(); // 7번째 줄에서 선언된 Scanner sc를 할당하여 nextLine로 입력값이 있을시 입력값을 인식하게 한다.
-            result = myCal.calculate(firstNumber, secondNumber, input); // calculate 메서드 호출, 호출 시에는 타입 x
-            //
-            System.out.println(result);
+            case("/"):
+                if(secondNumber == 0) {
+                    System.out.println("연산자 기호는 0이 될수 없습니다.");
+                    break;
+                }
+                result = firstNumber / secondNumber;
+                break;
 
+            case("*"):
+                result = firstNumber * secondNumber;
+                break;
+
+            default:
+                System.out.println("연산자 기호가 아닙니다.");
         }
-
-        // switch 문 에서 계산된 result 값을 출력
-
-
+        results.add(result);
+        return result; // 계산 결과를 반환한다.
+    }
+    // Getter 메서드
+    public ArrayList<Integer> getResults() { // 전체 연산 결과 겟한다. 가져온다.
+        return results; // 반환
+    }
+    // Setter 메서드
+    public void setResults(ArrayList<Integer> results) { // 연산 결과 수정
+        this.results = results;
+    }
+    public void removeResult() {
+        /* 구현 */
+        // 1. 0번쨰 부터 삭제(호출 될때마다 삭제)
+        results.remove(0);
     }
 }
-

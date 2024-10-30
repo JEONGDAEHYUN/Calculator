@@ -2,7 +2,7 @@ package Calulator;
 
 import java.util.Scanner;
 
-public class Test {
+public class App2 {
     public static void main(String[] args) {
         // 1. 첫번째 숫자를 입력받는다.
         // Scanner, int
@@ -22,24 +22,24 @@ public class Test {
         // sout
         System.out.println("첫번째 숫자: " + firstNumber + " 두번째 숫자: " + secondNumber + " 연산자: " + input);
 
-        int print = 0;
+        int result = 0;
         // firstNumber, secondNumber, input
         if(input.equals("+")) {
-            print = firstNumber + secondNumber;
+            result = firstNumber + secondNumber;
         } else if(input.equals("-")) {
-            print = firstNumber - secondNumber;
+            result = firstNumber - secondNumber;
         } else if(input.equals("*")) {
-            print = firstNumber * secondNumber;
+            result = firstNumber * secondNumber;
         } else if(input.equals("/")) {
             if(secondNumber == 0) {
                 System.out.println("secondNumber는 0이 될수 없습니다.");
                 return;
             }
-            print = firstNumber / secondNumber;
+            result = firstNumber / secondNumber;
         } else{
             System.out.println("연산자가 아닙니다.");
             return;
         }
-        System.out.println(print);
+        System.out.println(result);
     }
 }
